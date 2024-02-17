@@ -5,21 +5,33 @@
  * Gunakan fungsi showPopUp() untuk menampilkan pop up error
  */
 
+// Membuat sebuah variable untuk setiap elemen view
 const loginFormElement = document.querySelector('#loginForm');
 const inputEmailElement = document.querySelector('#inputEmail');
 const inputPasswordElement = document.querySelector('#inputPassword');
 
+// Menyimpan informasi untuk menyimpan informasi email dan password
 const expectedEmail = 'admin@dicoding.com';
 const expectedPassword = 'superpassword';
 
+// Menambahkan klik pada button 
 loginFormElement.addEventListener('submit', function(event) {
-  event.preventDefault();
+    event.preventDefault();
+    // TODO 1 : Mendapatkan input email dan password pengguna dari form.
+    const email = inputEmailElement.value;
+    const password = inputPasswordElement.value; 
 
-  const email = inputEmailElement.value;
-  const password = inputPasswordElement.value;
-  if (email == expectedEmail && password == expectedPassword) {
-    goToHome();
-  } else {
-    showPopUp();
-  }
+    /* TODO 2 : Buat Logika perbandingan dengan kondisi:
+       Jika variabel email identik dengan expectedEmail dan password identik dengan expectedPassword, panggil fungsi goToHome().
+       Jika tidak, maka panggil fungsi showPopUp().
+     */
+
+    // Memastikan bahwa email dan password sesuai dengan nilai yang disimpan
+    if(email == expectedEmail && password == expectedPassword) {
+      // Jika sesuai maka halaman akan berpindah ke home
+      goToHome();
+    } else {
+      // Namun jika tidak sesuai, maka menampilkan informasi input salah
+      showPopUp();
+    }
 });
